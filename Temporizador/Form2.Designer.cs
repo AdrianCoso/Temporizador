@@ -36,6 +36,8 @@
             this.lblSegundos = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.lblSound = new System.Windows.Forms.Label();
+            this.cbSonidos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cbHoras
@@ -70,7 +72,6 @@
             this.lblHoras.Size = new System.Drawing.Size(35, 13);
             this.lblHoras.TabIndex = 3;
             this.lblHoras.Text = "Horas";
-            this.lblHoras.Click += new System.EventHandler(this.lblHoras_Click);
             // 
             // lblMinutos
             // 
@@ -93,7 +94,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(279, 91);
+            this.btnCancelar.Location = new System.Drawing.Point(177, 129);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 6;
@@ -103,18 +104,37 @@
             // btnAceptar
             // 
             this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.Location = new System.Drawing.Point(487, 91);
+            this.btnAceptar.Location = new System.Drawing.Point(386, 129);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             // 
+            // lblSound
+            // 
+            this.lblSound.AutoSize = true;
+            this.lblSound.Location = new System.Drawing.Point(215, 75);
+            this.lblSound.Name = "lblSound";
+            this.lblSound.Size = new System.Drawing.Size(40, 13);
+            this.lblSound.TabIndex = 8;
+            this.lblSound.Text = "Sonido";
+            // 
+            // cbSonidos
+            // 
+            this.cbSonidos.FormattingEnabled = true;
+            this.cbSonidos.Location = new System.Drawing.Point(261, 72);
+            this.cbSonidos.Name = "cbSonidos";
+            this.cbSonidos.Size = new System.Drawing.Size(121, 21);
+            this.cbSonidos.TabIndex = 9;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 164);
+            this.Controls.Add(this.cbSonidos);
+            this.Controls.Add(this.lblSound);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblSegundos);
@@ -132,13 +152,15 @@
 
         #endregion
 
-        public System.Windows.Forms.ComboBox cbHoras;
-        public System.Windows.Forms.ComboBox cbMinutos;
-        public System.Windows.Forms.ComboBox cbSegundos;
+        private System.Windows.Forms.ComboBox cbHoras;
+        private System.Windows.Forms.ComboBox cbMinutos;
+        private System.Windows.Forms.ComboBox cbSegundos;
         private System.Windows.Forms.Label lblHoras;
         private System.Windows.Forms.Label lblMinutos;
         private System.Windows.Forms.Label lblSegundos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Label lblSound;
+        private System.Windows.Forms.ComboBox cbSonidos;
     }
 }

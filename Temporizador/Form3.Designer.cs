@@ -72,6 +72,7 @@
             this.Controls.Add(this.TextoTiempoFinalizado);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.reproducirSonido);
             this.ResumeLayout(false);
             this.PerformLayout();
 

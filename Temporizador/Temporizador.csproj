@@ -99,5 +99,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="sounds\mixkit-arcade-retro-game-over-213.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sounds\mixkit-classic-alarm-995.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sounds\mixkit-sad-game-over-trombone-471.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sounds\mixkit-small-group-cheer-and-applause-518.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

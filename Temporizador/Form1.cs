@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Media;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,13 +17,16 @@ namespace Temporizador
     public partial class Form1 : Form
     {
 
-        int horas;
-        int minutos;
-        int segundos;
+        static int horas;
+        static int minutos;
+        static int segundos;
         DateTime tiempoInicial;
         TimeSpan tiempoParaMostrar;
         TimeSpan tiempoContador;
         TimeSpan intervalo;
+        private string sonidoSeleccionado;
+        private static Dictionary<string, SoundPlayer> sonidos = new Dictionary<string, SoundPlayer>();
+
         public Form1()
         {
             InitializeComponent();
@@ -31,8 +35,13 @@ namespace Temporizador
             minutos = 4;
             segundos = 0;
             tiempoContador = new TimeSpan(horas, minutos, segundos);
+            sonidos["Game over retro"] = new SoundPlayer(Properties.Resources.mixkit_arcade_retro_game_over_213);
+            sonidos["Game over clásico"] = new SoundPlayer(Properties.Resources.mixkit_sad_game_over_trombone_471);
+            sonidos["Aplauso"] = new SoundPlayer(Properties.Resources.mixkit_small_group_cheer_and_applause_518);
+            sonidos["Alarma clásica"] = new SoundPlayer(Properties.Resources.mixkit_classic_alarm_995);
             
             lblTiempo.Text = tiempoContador.ToString(@"hh\:mm\:ss");
+            sonidoSeleccionado = "Alarma clásica";
             
         }
 
@@ -84,7 +93,7 @@ namespace Temporizador
             if (tiempoParaMostrar.CompareTo(TimeSpan.Zero) <= 0)
             {
                 timer1.Enabled = false;
-                Form3 dialogoFinalizacion = new Form3();
+                Form3 dialogoFinalizacion = new Form3(sonidos[sonidoSeleccionado]);
                 if(dialogoFinalizacion.ShowDialog(this) == DialogResult.OK)
                 {
                     ReiniciarTemporizador();
@@ -110,18 +119,24 @@ namespace Temporizador
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Form2 editorTemporizador = new Form2();
+            Form2 editorTemporizador = new Form2(horas, minutos, segundos, sonidos);
             if (editorTemporizador.ShowDialog(this) == DialogResult.OK)
             {
-                horas = (int)editorTemporizador.cbHoras.SelectedItem;
-                minutos = (int)editorTemporizador.cbMinutos.SelectedItem;
-                segundos = (int)editorTemporizador.cbSegundos.SelectedItem;
+                horas = (int)editorTemporizador.getComboHoras().SelectedItem;
+                minutos = (int)editorTemporizador.getComboMinutos().SelectedItem;
+                segundos = (int)editorTemporizador.getComboSegundos().SelectedItem;
+                sonidoSeleccionado = (string)editorTemporizador.getComboSonidos().SelectedItem;
             }
             tiempoContador=new TimeSpan(horas, minutos, segundos);
             tiempoParaMostrar = tiempoContador;
             lblTiempo.Text = tiempoParaMostrar.ToString(@"hh\:mm\:ss");
             btnIniciarParar.Text = "Iniciar";
             timer1.Enabled = false;
+        }
+
+        private static void reproducirSonido(string selectedIndex)
+        {
+            sonidos[selectedIndex].Play();
         }
     }
 }

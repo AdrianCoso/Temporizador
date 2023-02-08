@@ -69,5 +69,41 @@ namespace Temporizador.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mixkit_arcade_retro_game_over_213 {
+            get {
+                return ResourceManager.GetStream("mixkit_arcade_retro_game_over_213", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mixkit_classic_alarm_995 {
+            get {
+                return ResourceManager.GetStream("mixkit_classic_alarm_995", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mixkit_sad_game_over_trombone_471 {
+            get {
+                return ResourceManager.GetStream("mixkit_sad_game_over_trombone_471", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mixkit_small_group_cheer_and_applause_518 {
+            get {
+                return ResourceManager.GetStream("mixkit_small_group_cheer_and_applause_518", resourceCulture);
+            }
+        }
     }
 }
