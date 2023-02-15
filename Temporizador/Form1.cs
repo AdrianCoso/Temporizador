@@ -7,6 +7,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Media;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace Temporizador
         public int minutos;
         public int segundos;
         DateTime tiempoInicial;
+        DateTime fecha = DateTime.Now;
         public TimeSpan tiempoParaMostrar;
         public TimeSpan tiempoContador = new TimeSpan();
         TimeSpan intervalo;
@@ -51,7 +53,14 @@ namespace Temporizador
             horas = 0;
             minutos = 0;
             segundos = 3;
-            tiempoContador = new TimeSpan(horas, minutos, segundos);
+            if (cuenta)
+            {
+                tiempoContador = new TimeSpan(horas, minutos, segundos); 
+            }
+            else
+            {
+                tiempoContador = fecha - DateTime.Now;
+            }
 
             // Inicializar sonidos y sonido por defecto
             sonidos["Game over retro"] = new SoundPlayer(Properties.Resources.mixkit_arcade_retro_game_over_213);
@@ -70,12 +79,27 @@ namespace Temporizador
             fonts.AddMemoryFont(fontPtr, Properties.Resources.digital_7_mono_.Length);
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.digital_7_mono_.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
             fuenteDigital = new Font(fonts.Families[0], 60.0F);
             lblTiempo.Font = fuenteDigital;
             lblCrono.Font = fuenteDigital;
             lblCrono.Text = "";
             MostrarTiempo(tiempoContador);
+
+            // Ocultar botón de reiniciar si contamos desde/hasta una fecha
+            if (cuenta)
+            {
+                btnReiniciar.Show();
+                btnIniciarParar.Show();
+                lblFecha.Hide();
+            }
+            else
+            {
+                btnIniciarParar.Hide();
+                btnReiniciar.Hide();
+                lblFecha.Show();
+            }
+
+            // Inicializar comportamiento al finalizar
             enCero = 0;
             
         }
@@ -135,9 +159,16 @@ namespace Temporizador
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            intervalo = DateTime.Now - tiempoInicial; // Calculamos el tiempo transcurrido desde que se inició/reanudó el contador
-            
-            tiempoParaMostrar = tiempoContador.Subtract(intervalo); //Calculamos el tiempo que debemos mostrar en base al tiempo transcurrido
+            if (cuenta) // Calculamos el tiempo transcurrido desde que se inició/reanudó el contador
+            {
+                intervalo = DateTime.Now - tiempoInicial; 
+                tiempoParaMostrar = tiempoContador.Subtract(intervalo); //Calculamos el tiempo que debemos mostrar en base al tiempo transcurrido
+            } 
+            else
+            {
+                intervalo = fecha - DateTime.Now;
+                tiempoParaMostrar = intervalo;
+            }
             if (tiempoParaMostrar.CompareTo(TimeSpan.Zero) <= 0 && !tiempoFinalizado)// Si el tiempo que debemos mostrar es cero o menos hemos terminado el temporizador
             {
                 tiempoFinalizado = true; // Damos por finalizado el tiempo para no volver a mostrar diálogos o reproducir alarmas
@@ -207,29 +238,59 @@ namespace Temporizador
             editorTemporizador.cbSonidos.SelectedItem = sonidoSeleccionado;
             editorTemporizador.checkBox1.Checked = bucleSonido;
             editorTemporizador.cbCero.SelectedIndex = enCero;
+            editorTemporizador.rbCuenta.Checked = cuenta;
 
             if (editorTemporizador.ShowDialog(this) == DialogResult.OK) // Pulsando Aceptar recogemos los valores y ponemos en marcha
             {
-                // Valores del temporizador
-                horas = (int)editorTemporizador.numericHoras.Value;
-                minutos = (int)editorTemporizador.numericMinutos.Value;
-                segundos = (int)editorTemporizador.numericSegundos.Value;
-                tiempoContador=new TimeSpan(horas, minutos, segundos);
-                tiempoParaMostrar = tiempoContador;
-                lblTiempo.Text = tiempoParaMostrar.ToString(@"hh\:mm\:ss");
-
                 // Sonido de alarma
                 sonidoSeleccionado = (string)editorTemporizador.cbSonidos.SelectedItem;
                 bucleSonido = (bool)editorTemporizador.checkBox1.Checked;
                 dialogoFinalizacion.Sonido = sonidos[(string)editorTemporizador.cbSonidos.SelectedItem];
                 dialogoFinalizacion.bucleSonido = editorTemporizador.checkBox1.Checked;
 
-                // Comportamiento al llegar a cero
-                enCero = (int)editorTemporizador.cbCero.SelectedIndex;
-
                 // Mensaje de alarma
                 dialogoFinalizacion.TextoTiempoFinalizado.Text = editorTemporizador.tbMensaje.Text;
                 lblMensaje.Text = editorTemporizador.tbMensaje.Text;
+
+                // Modificamos el temporizador según la opción de fecha o cuenta atrás
+                if (editorTemporizador.rbCuenta.Checked)
+                {
+                    // Valores del temporizador
+                    horas = (int)editorTemporizador.numericHoras.Value;
+                    minutos = (int)editorTemporizador.numericMinutos.Value;
+                    segundos = (int)editorTemporizador.numericSegundos.Value;
+                    tiempoContador=new TimeSpan(horas, minutos, segundos);
+                    //Comportamiento al finalizar
+                    enCero = (int)editorTemporizador.cbCero.SelectedIndex;
+                    // Controles necesarios
+                    btnIniciarParar.Show();
+                    btnReiniciar.Show();
+                    lblFecha.Hide();
+                    cuenta = true;
+                }
+                else
+                {
+                    // Valor de la fecha
+                    fecha = new DateTime(
+                        editorTemporizador.dateTimePicker1.Value.Year,
+                        editorTemporizador.dateTimePicker1.Value.Month,
+                        editorTemporizador.dateTimePicker1.Value.Day,
+                        editorTemporizador.dateTimePicker2.Value.Hour,
+                        editorTemporizador.dateTimePicker2.Value.Minute,
+                        editorTemporizador.dateTimePicker2.Value.Second);
+                    tiempoContador = fecha - DateTime.Now;
+                    // Al finalizar siempre continuamos
+                    enCero = 2;
+                    lblFecha.Text = fecha.ToString();
+                    // controles necesarios
+                    btnIniciarParar.Hide();
+                    btnReiniciar.Hide();
+                    lblFecha.Show();
+                    cuenta = false;
+                }
+
+                tiempoParaMostrar = tiempoContador;
+                MostrarTiempo(tiempoParaMostrar);
 
                 tiempoFinalizado = false;
                 IniciarCrono();

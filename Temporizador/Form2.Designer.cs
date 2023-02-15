@@ -46,11 +46,8 @@
             this.cbCero = new System.Windows.Forms.ComboBox();
             this.lblCero = new System.Windows.Forms.Label();
             this.pnlFecha = new System.Windows.Forms.Panel();
-            this.numHoraFecha = new System.Windows.Forms.NumericUpDown();
-            this.numMinutoFecha = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblHoraFecha = new System.Windows.Forms.Label();
-            this.lblMinutoFecha = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pnlRadios = new System.Windows.Forms.Panel();
             this.pnlBotones = new System.Windows.Forms.Panel();
@@ -60,8 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericSegundos)).BeginInit();
             this.pnlCuenta.SuspendLayout();
             this.pnlFecha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numHoraFecha)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinutoFecha)).BeginInit();
             this.pnlRadios.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -255,9 +250,9 @@
             this.pnlCuenta.Controls.Add(this.numericHoras);
             this.pnlCuenta.Controls.Add(this.numericMinutos);
             this.pnlCuenta.Controls.Add(this.numericSegundos);
-            this.pnlCuenta.Location = new System.Drawing.Point(0, 64);
+            this.pnlCuenta.Location = new System.Drawing.Point(0, 57);
             this.pnlCuenta.Name = "pnlCuenta";
-            this.pnlCuenta.Size = new System.Drawing.Size(458, 102);
+            this.pnlCuenta.Size = new System.Drawing.Size(491, 102);
             this.pnlCuenta.TabIndex = 17;
             // 
             // cbCero
@@ -288,45 +283,21 @@
             // 
             // pnlFecha
             // 
-            this.pnlFecha.Controls.Add(this.numHoraFecha);
-            this.pnlFecha.Controls.Add(this.numMinutoFecha);
+            this.pnlFecha.Controls.Add(this.dateTimePicker2);
             this.pnlFecha.Controls.Add(this.dateTimePicker1);
-            this.pnlFecha.Controls.Add(this.lblHoraFecha);
-            this.pnlFecha.Controls.Add(this.lblMinutoFecha);
-            this.pnlFecha.Location = new System.Drawing.Point(0, 64);
+            this.pnlFecha.Location = new System.Drawing.Point(0, 57);
             this.pnlFecha.Name = "pnlFecha";
-            this.pnlFecha.Size = new System.Drawing.Size(477, 46);
+            this.pnlFecha.Size = new System.Drawing.Size(491, 46);
             this.pnlFecha.TabIndex = 18;
             // 
-            // numHoraFecha
+            // dateTimePicker2
             // 
-            this.numHoraFecha.BackColor = System.Drawing.Color.DimGray;
-            this.numHoraFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numHoraFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.numHoraFecha.Location = new System.Drawing.Point(287, 12);
-            this.numHoraFecha.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.numHoraFecha.Name = "numHoraFecha";
-            this.numHoraFecha.Size = new System.Drawing.Size(42, 26);
-            this.numHoraFecha.TabIndex = 2;
-            // 
-            // numMinutoFecha
-            // 
-            this.numMinutoFecha.BackColor = System.Drawing.Color.DimGray;
-            this.numMinutoFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numMinutoFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.numMinutoFecha.Location = new System.Drawing.Point(391, 12);
-            this.numMinutoFecha.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numMinutoFecha.Name = "numMinutoFecha";
-            this.numMinutoFecha.Size = new System.Drawing.Size(43, 26);
-            this.numMinutoFecha.TabIndex = 1;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(258, 13);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(84, 20);
+            this.dateTimePicker2.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
@@ -338,28 +309,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 0;
-            // 
-            // lblHoraFecha
-            // 
-            this.lblHoraFecha.AutoSize = true;
-            this.lblHoraFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHoraFecha.Location = new System.Drawing.Point(237, 14);
-            this.lblHoraFecha.Name = "lblHoraFecha";
-            this.lblHoraFecha.Size = new System.Drawing.Size(44, 20);
-            this.lblHoraFecha.TabIndex = 8;
-            this.lblHoraFecha.Text = "Hora";
-            // 
-            // lblMinutoFecha
-            // 
-            this.lblMinutoFecha.AutoSize = true;
-            this.lblMinutoFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinutoFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblMinutoFecha.Location = new System.Drawing.Point(334, 14);
-            this.lblMinutoFecha.Name = "lblMinutoFecha";
-            this.lblMinutoFecha.Size = new System.Drawing.Size(57, 20);
-            this.lblMinutoFecha.TabIndex = 8;
-            this.lblMinutoFecha.Text = "Minuto";
             // 
             // checkBox1
             // 
@@ -380,7 +329,7 @@
             this.pnlRadios.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlRadios.Location = new System.Drawing.Point(0, 0);
             this.pnlRadios.Name = "pnlRadios";
-            this.pnlRadios.Size = new System.Drawing.Size(470, 58);
+            this.pnlRadios.Size = new System.Drawing.Size(491, 58);
             this.pnlRadios.TabIndex = 20;
             // 
             // pnlBotones
@@ -394,9 +343,9 @@
             this.pnlBotones.Controls.Add(this.tbMensaje);
             this.pnlBotones.Controls.Add(this.pictureBox1);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 169);
+            this.pnlBotones.Location = new System.Drawing.Point(0, 160);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(470, 157);
+            this.pnlBotones.Size = new System.Drawing.Size(491, 157);
             this.pnlBotones.TabIndex = 21;
             // 
             // pictureBox1
@@ -415,11 +364,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(470, 326);
+            this.ClientSize = new System.Drawing.Size(491, 317);
+            this.Controls.Add(this.pnlFecha);
             this.Controls.Add(this.pnlCuenta);
             this.Controls.Add(this.pnlBotones);
             this.Controls.Add(this.pnlRadios);
-            this.Controls.Add(this.pnlFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
             this.Text = "Form2";
@@ -429,9 +378,6 @@
             this.pnlCuenta.ResumeLayout(false);
             this.pnlCuenta.PerformLayout();
             this.pnlFecha.ResumeLayout(false);
-            this.pnlFecha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numHoraFecha)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinutoFecha)).EndInit();
             this.pnlRadios.ResumeLayout(false);
             this.pnlRadios.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
@@ -454,20 +400,17 @@
         public System.Windows.Forms.NumericUpDown numericSegundos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.RadioButton rbCuenta;
-        private System.Windows.Forms.RadioButton rbFecha;
+        public System.Windows.Forms.RadioButton rbCuenta;
+        public System.Windows.Forms.RadioButton rbFecha;
         private System.Windows.Forms.Panel pnlCuenta;
         private System.Windows.Forms.Panel pnlFecha;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.NumericUpDown numHoraFecha;
-        private System.Windows.Forms.NumericUpDown numMinutoFecha;
-        private System.Windows.Forms.Label lblHoraFecha;
-        private System.Windows.Forms.Label lblMinutoFecha;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.ComboBox cbCero;
         private System.Windows.Forms.Label lblCero;
         public System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel pnlRadios;
         private System.Windows.Forms.Panel pnlBotones;
         public System.Windows.Forms.TextBox tbMensaje;
+        public System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

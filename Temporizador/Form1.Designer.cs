@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.lblCrono = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +92,11 @@
             // 
             this.lblTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTiempo.AutoSize = true;
-            this.lblTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 80.24999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTiempo.Location = new System.Drawing.Point(93, 70);
+            this.lblTiempo.Location = new System.Drawing.Point(97, 63);
             this.lblTiempo.Name = "lblTiempo";
-            this.lblTiempo.Size = new System.Drawing.Size(368, 138);
+            this.lblTiempo.Size = new System.Drawing.Size(275, 104);
             this.lblTiempo.TabIndex = 3;
             this.lblTiempo.Text = "tiempo";
             this.lblTiempo.UseCompatibleTextRendering = true;
@@ -128,12 +129,22 @@
             this.lblCrono.AutoSize = true;
             this.lblCrono.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCrono.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblCrono.Location = new System.Drawing.Point(12, 94);
+            this.lblCrono.Location = new System.Drawing.Point(29, 63);
             this.lblCrono.Name = "lblCrono";
             this.lblCrono.Size = new System.Drawing.Size(75, 104);
             this.lblCrono.TabIndex = 3;
             this.lblCrono.Text = "+";
             this.lblCrono.UseCompatibleTextRendering = true;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblFecha.Location = new System.Drawing.Point(26, 176);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(35, 13);
+            this.lblFecha.TabIndex = 6;
+            this.lblFecha.Text = "label1";
             // 
             // Form1
             // 
@@ -141,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(510, 283);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblCrono);
@@ -168,6 +180,7 @@
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTiempo;
         public System.Windows.Forms.Label lblCrono;
+        private System.Windows.Forms.Label lblFecha;
     }
 }
 
