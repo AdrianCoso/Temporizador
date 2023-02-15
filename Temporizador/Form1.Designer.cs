@@ -37,7 +37,6 @@
             this.lblTiempo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.lblCrono = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +47,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEditar.Location = new System.Drawing.Point(12, 211);
+            this.btnEditar.Location = new System.Drawing.Point(123, 307);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 60);
             this.btnEditar.TabIndex = 0;
@@ -62,7 +61,7 @@
             this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReiniciar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReiniciar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReiniciar.Location = new System.Drawing.Point(195, 211);
+            this.btnReiniciar.Location = new System.Drawing.Point(304, 307);
             this.btnReiniciar.Name = "btnReiniciar";
             this.btnReiniciar.Size = new System.Drawing.Size(120, 60);
             this.btnReiniciar.TabIndex = 1;
@@ -76,7 +75,7 @@
             this.btnIniciarParar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarParar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarParar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnIniciarParar.Location = new System.Drawing.Point(379, 211);
+            this.btnIniciarParar.Location = new System.Drawing.Point(477, 307);
             this.btnIniciarParar.Name = "btnIniciarParar";
             this.btnIniciarParar.Size = new System.Drawing.Size(120, 60);
             this.btnIniciarParar.TabIndex = 2;
@@ -90,11 +89,10 @@
             // 
             // lblTiempo
             // 
-            this.lblTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTiempo.AutoSize = true;
             this.lblTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTiempo.Location = new System.Drawing.Point(97, 63);
+            this.lblTiempo.Location = new System.Drawing.Point(29, 105);
             this.lblTiempo.Name = "lblTiempo";
             this.lblTiempo.Size = new System.Drawing.Size(275, 104);
             this.lblTiempo.TabIndex = 3;
@@ -105,7 +103,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Temporizador.Properties.Resources.power_off_button;
-            this.pictureBox1.Location = new System.Drawing.Point(447, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(607, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(52, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -124,23 +122,11 @@
             this.lblMensaje.TabIndex = 5;
             this.lblMensaje.Text = "Alarma";
             // 
-            // lblCrono
-            // 
-            this.lblCrono.AutoSize = true;
-            this.lblCrono.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrono.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblCrono.Location = new System.Drawing.Point(29, 63);
-            this.lblCrono.Name = "lblCrono";
-            this.lblCrono.Size = new System.Drawing.Size(75, 104);
-            this.lblCrono.TabIndex = 3;
-            this.lblCrono.Text = "+";
-            this.lblCrono.UseCompatibleTextRendering = true;
-            // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblFecha.Location = new System.Drawing.Point(26, 176);
+            this.lblFecha.Location = new System.Drawing.Point(339, 249);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(35, 13);
             this.lblFecha.TabIndex = 6;
@@ -151,11 +137,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(510, 283);
+            this.ClientSize = new System.Drawing.Size(671, 400);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblCrono);
             this.Controls.Add(this.lblTiempo);
             this.Controls.Add(this.btnIniciarParar);
             this.Controls.Add(this.btnReiniciar);
@@ -179,7 +164,6 @@
         public System.Windows.Forms.Button btnIniciarParar;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTiempo;
-        public System.Windows.Forms.Label lblCrono;
         private System.Windows.Forms.Label lblFecha;
     }
 }

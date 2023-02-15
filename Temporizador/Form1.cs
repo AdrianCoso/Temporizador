@@ -81,8 +81,6 @@ namespace Temporizador
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             fuenteDigital = new Font(fonts.Families[0], 60.0F);
             lblTiempo.Font = fuenteDigital;
-            lblCrono.Font = fuenteDigital;
-            lblCrono.Text = "";
             MostrarTiempo(tiempoContador);
 
             // Ocultar botón de reiniciar si contamos desde/hasta una fecha
@@ -108,18 +106,25 @@ namespace Temporizador
          */
         public void MostrarTiempo(TimeSpan tiempo)
         {
-            if (tiempo.Days > 0)
+            string StringTiempo = null;
+            if (Math.Abs(tiempo.Days) > 0)
             {
-                lblTiempo.Text = tiempo.ToString("%d") + " días " + tiempo.ToString(@"hh\:mm\:ss"); 
+                StringTiempo = tiempo.ToString("%d") + " días " + tiempo.ToString(@"hh\:mm\:ss"); 
             }
-            else if(tiempo.Hours > 0)
+            else if(Math.Abs(tiempo.Hours) > 0)
             {
-                lblTiempo.Text = tiempo.ToString(@"hh\:mm\:ss");
+                StringTiempo = tiempo.ToString(@"hh\:mm\:ss");
             }
             else
             {
-                lblTiempo.Text = tiempo.ToString(@"mm\:ss");
+                StringTiempo = tiempo.ToString(@"mm\:ss");
             }
+            if (tiempoFinalizado)
+            {
+                StringTiempo = "+ "+StringTiempo;
+            }
+
+            lblTiempo.Text = StringTiempo;
         }
 
         private void btnIniciarParar_Click(object sender, EventArgs e)
@@ -190,7 +195,7 @@ namespace Temporizador
                         break;
 
                     case 2: // Al llegar a cero continuamos contando el tiempo como cronómetro
-                        lblCrono.Text = "+";
+                        
                         
                         break;
 
@@ -220,7 +225,6 @@ namespace Temporizador
             MostrarTiempo(tiempoParaMostrar);
             btnIniciarParar.Text = "Iniciar";
             btnIniciarParar.BackColor = Color.DarkGreen;
-            lblCrono.Text = "";
             IniciarCrono();
         }
 
@@ -267,6 +271,7 @@ namespace Temporizador
                     btnReiniciar.Show();
                     lblFecha.Hide();
                     cuenta = true;
+                    tiempoFinalizado = false;
                 }
                 else
                 {
@@ -287,12 +292,11 @@ namespace Temporizador
                     btnReiniciar.Hide();
                     lblFecha.Show();
                     cuenta = false;
+                    tiempoFinalizado = fecha < DateTime.Now;
                 }
 
                 tiempoParaMostrar = tiempoContador;
                 MostrarTiempo(tiempoParaMostrar);
-
-                tiempoFinalizado = false;
                 IniciarCrono();
             }
         }
