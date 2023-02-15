@@ -76,7 +76,7 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -110,6 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="sounds\mixkit-small-group-cheer-and-applause-518.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\power-off-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,16 +15,18 @@ namespace Temporizador
 {
     public partial class Form3 : Form
     {
-        SoundPlayer sonido;
-        public Form3(SoundPlayer sonido)
+        private SoundPlayer sonido;
+        public Form3()
         {
             InitializeComponent();
-            this.sonido = sonido;
+           
         }
+
+        public SoundPlayer Sonido { get => sonido; set => sonido = value; }
 
         private void reproducirSonido(object sender, EventArgs e)
         {
-            sonido.Play();
+            Sonido.Play();
         }
     }
 }

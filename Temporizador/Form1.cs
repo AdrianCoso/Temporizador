@@ -17,20 +17,24 @@ namespace Temporizador
     public partial class Form1 : Form
     {
 
-        static int horas;
-        static int minutos;
-        static int segundos;
+        public int horas;
+        public int minutos;
+        public int segundos;
         DateTime tiempoInicial;
         TimeSpan tiempoParaMostrar;
-        TimeSpan tiempoContador;
+        TimeSpan tiempoContador = new TimeSpan();
         TimeSpan intervalo;
         private string sonidoSeleccionado;
-        private static Dictionary<string, SoundPlayer> sonidos = new Dictionary<string, SoundPlayer>();
+        private string mensaje = "";
+        public static Dictionary<string, SoundPlayer> sonidos = new Dictionary<string, SoundPlayer>();
+        public Form3 dialogoFinalizacion = new Form3();
+        private Form2 editorTemporizador = new Form2();
+
 
         public Form1()
         {
             InitializeComponent();
-            InitCustomFont();
+            //InitCustomFont();
             horas = 0;
             minutos = 4;
             segundos = 0;
@@ -41,31 +45,8 @@ namespace Temporizador
             sonidos["Alarma clásica"] = new SoundPlayer(Properties.Resources.mixkit_classic_alarm_995);
             
             lblTiempo.Text = tiempoContador.ToString(@"hh\:mm\:ss");
-            sonidoSeleccionado = "Alarma clásica";
+            sonidoSeleccionado = sonidos.Keys.First();
             
-        }
-
-        private void InitCustomFont()
-        {
-            // Crear una colección privada de fuentes
-            PrivateFontCollection pfc = new PrivateFontCollection();
-
-            // Seleccionar la fuente de los recursos disponibles
-            // La fuente se llama "Digital_7_mono"
-            int fontLength = Properties.Resources.digital_7__mono_.Length;
-
-            // Crear un buffer del que leer
-            byte[] fontdata = Properties.Resources.digital_7__mono_;
-
-            // Crear un bloque de memoria no seguro para los datos de la fuente
-            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
-
-            // Copiar los bytes al bloque de memoria
-            Marshal.Copy(fontdata, 0, data, fontLength);
-
-            // Pasar la fuente a la colección privada 
-            pfc.AddMemoryFont(data, fontLength);
-            lblTiempo.Font = new Font(pfc.Families[0], lblTiempo.Font.Size);
         }
 
         private void btnIniciarParar_Click(object sender, EventArgs e)
@@ -75,6 +56,7 @@ namespace Temporizador
                 tiempoInicial = DateTime.Now;
                 timer1.Enabled = true;
                 btnIniciarParar.Text = "Pausar";
+                btnIniciarParar.BackColor = Color.DarkRed;
 
             }
             else
@@ -82,6 +64,7 @@ namespace Temporizador
                 tiempoContador = tiempoParaMostrar;
                 timer1.Enabled = false;
                 btnIniciarParar.Text = "Iniciar";
+                btnIniciarParar.BackColor = Color.DarkGreen;
             }
         }
 
@@ -93,7 +76,8 @@ namespace Temporizador
             if (tiempoParaMostrar.CompareTo(TimeSpan.Zero) <= 0)
             {
                 timer1.Enabled = false;
-                Form3 dialogoFinalizacion = new Form3(sonidos[sonidoSeleccionado]);
+                dialogoFinalizacion.Sonido = sonidos[sonidoSeleccionado];
+                dialogoFinalizacion.TextoTiempoFinalizado.Text = mensaje;
                 if(dialogoFinalizacion.ShowDialog(this) == DialogResult.OK)
                 {
                     ReiniciarTemporizador();
@@ -115,17 +99,22 @@ namespace Temporizador
             tiempoParaMostrar = tiempoContador;
             lblTiempo.Text = tiempoParaMostrar.ToString(@"hh\:mm\:ss");
             btnIniciarParar.Text = "Iniciar";
+            btnIniciarParar.BackColor = Color.DarkGreen;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Form2 editorTemporizador = new Form2(horas, minutos, segundos, sonidos);
+            editorTemporizador.numericHoras.Value = horas;
+            editorTemporizador.numericMinutos.Value = minutos;
+            editorTemporizador.numericSegundos.Value = segundos;
+            editorTemporizador.cbSonidos.DataSource = new List<string>(sonidos.Keys);
+            editorTemporizador.cbSonidos.SelectedItem = sonidoSeleccionado;
             if (editorTemporizador.ShowDialog(this) == DialogResult.OK)
             {
-                horas = (int)editorTemporizador.getComboHoras().SelectedItem;
-                minutos = (int)editorTemporizador.getComboMinutos().SelectedItem;
-                segundos = (int)editorTemporizador.getComboSegundos().SelectedItem;
-                sonidoSeleccionado = (string)editorTemporizador.getComboSonidos().SelectedItem;
+                horas = (int)editorTemporizador.numericHoras.Value;
+                minutos = (int)editorTemporizador.numericMinutos.Value;
+                segundos = (int)editorTemporizador.numericSegundos.Value;
+                sonidoSeleccionado = (string)editorTemporizador.cbSonidos.SelectedItem;
             }
             tiempoContador=new TimeSpan(horas, minutos, segundos);
             tiempoParaMostrar = tiempoContador;
@@ -134,9 +123,9 @@ namespace Temporizador
             timer1.Enabled = false;
         }
 
-        private static void reproducirSonido(string selectedIndex)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            sonidos[selectedIndex].Play();
+            Application.Exit();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Temporizador.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Temporizador.Properties {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Temporizador.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Temporizador.Properties {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static byte[] digital_7__mono_ {
+        public static byte[] digital_7__mono_ {
             get {
                 object obj = ResourceManager.GetObject("digital_7__mono_", resourceCulture);
                 return ((byte[])(obj));
@@ -73,7 +73,7 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream mixkit_arcade_retro_game_over_213 {
+        public static System.IO.UnmanagedMemoryStream mixkit_arcade_retro_game_over_213 {
             get {
                 return ResourceManager.GetStream("mixkit_arcade_retro_game_over_213", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream mixkit_classic_alarm_995 {
+        public static System.IO.UnmanagedMemoryStream mixkit_classic_alarm_995 {
             get {
                 return ResourceManager.GetStream("mixkit_classic_alarm_995", resourceCulture);
             }
@@ -91,7 +91,7 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream mixkit_sad_game_over_trombone_471 {
+        public static System.IO.UnmanagedMemoryStream mixkit_sad_game_over_trombone_471 {
             get {
                 return ResourceManager.GetStream("mixkit_sad_game_over_trombone_471", resourceCulture);
             }
@@ -100,9 +100,29 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.IO.UnmanagedMemoryStream similar a System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream mixkit_small_group_cheer_and_applause_518 {
+        public static System.IO.UnmanagedMemoryStream mixkit_small_group_cheer_and_applause_518 {
             get {
                 return ResourceManager.GetStream("mixkit_small_group_cheer_and_applause_518", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap play {
+            get {
+                object obj = ResourceManager.GetObject("play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap power_off_button {
+            get {
+                object obj = ResourceManager.GetObject("power-off-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

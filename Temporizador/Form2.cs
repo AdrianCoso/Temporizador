@@ -14,51 +14,32 @@ namespace Temporizador
 {
     public partial class Form2 : Form
     {
-        int[] valoresHoras = new int[24];
-        
-     
-        int[] valoresMinutos = new int[60];
-        int[] valoresSegundos = new int[60];
-        private string[] valoresSonidos = new string[] { "Retro game over", "Classic game over", "Aplauso", "Alarma clásica"};
-        
 
-        public Form2(int horas, int minutos, int segundos, Dictionary<string, SoundPlayer> sonidos)
+        public Form2()
         {
             InitializeComponent();
-            for (int i = 0; i < valoresHoras.Length; i++)
-            {
-                valoresHoras[i] = i;
-            }
-            for (int i = 0; i < valoresMinutos.Length; i++)
-            {
-                valoresMinutos[i] = i;
-                valoresSegundos[i] = i;
-            } 
-            cbHoras.DataSource = valoresHoras;
-            cbHoras.SelectedItem = horas;
-            cbMinutos.DataSource = valoresMinutos;
-            cbMinutos.SelectedItem = minutos;
-            cbSegundos.DataSource = valoresSegundos;
-            cbSegundos.SelectedItem = segundos;
-            cbSonidos.DataSource = new List<string>(sonidos.Keys);
+            rbCuenta.Checked = true;
             
         }
 
-        public ComboBox getComboHoras()
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            return cbHoras;
+            Form1.sonidos[(string)cbSonidos.SelectedItem].Play();
         }
-        public ComboBox getComboMinutos()
+
+        private void rbCuenta_CheckedChanged(object sender, EventArgs e)
         {
-            return cbMinutos;
-        }
-        public ComboBox getComboSegundos()
-        {
-            return cbSegundos;
-        }
-        public ComboBox getComboSonidos()
-        {
-            return cbSonidos;
+            if (rbCuenta.Checked)
+            {
+                pnlFecha.Hide();
+                pnlCuenta.Show();
+            }
+            else
+            {
+                pnlCuenta.Hide();
+                pnlFecha.Show();
+            }
         }
     }
+
 }
