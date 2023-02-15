@@ -43,7 +43,13 @@ namespace Temporizador
         private PrivateFontCollection fonts = new PrivateFontCollection();
 
         Font fuenteDigital;
+ 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
 
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         public Form1()
         {
@@ -88,12 +94,17 @@ namespace Temporizador
             {
                 btnReiniciar.Show();
                 btnIniciarParar.Show();
+                lblFecha.Hide(); 
+                btnEditar.Left = this.Width / 18;
+                btnReiniciar.Left = (this.Width - btnReiniciar.Width) / 2;
+                btnIniciarParar.Left = this.Width * 14 / 18;
                 lblFecha.Hide();
             }
             else
             {
                 btnIniciarParar.Hide();
                 btnReiniciar.Hide();
+                btnEditar.Left = (this.Width - btnEditar.Width) / 2;
                 lblFecha.Show();
             }
 
@@ -101,6 +112,7 @@ namespace Temporizador
             enCero = 0;
             
         }
+
         /**
          * Convierte un valor de intervalo de tiempo en una cadena legible y la asigna como texto a la label correspondiente.
          */
@@ -125,6 +137,8 @@ namespace Temporizador
             }
 
             lblTiempo.Text = StringTiempo;
+            // Posicionar lblTiempo en el centro de la pantalla
+            lblTiempo.Left = (this.Width - lblTiempo.Width) / 2;
         }
 
         private void btnIniciarParar_Click(object sender, EventArgs e)
@@ -269,6 +283,9 @@ namespace Temporizador
                     // Controles necesarios
                     btnIniciarParar.Show();
                     btnReiniciar.Show();
+                    btnEditar.Left = this.Width / 18;
+                    btnReiniciar.Left = (this.Width - btnReiniciar.Width) /2;
+                    btnIniciarParar.Left = this.Width * 14 / 18;
                     lblFecha.Hide();
                     cuenta = true;
                     tiempoFinalizado = false;
@@ -287,9 +304,11 @@ namespace Temporizador
                     // Al finalizar siempre continuamos
                     enCero = 2;
                     lblFecha.Text = fecha.ToString();
+                    lblFecha.Left = (this.Width - lblFecha.Width) / 2;
                     // controles necesarios
                     btnIniciarParar.Hide();
                     btnReiniciar.Hide();
+                    btnEditar.Left = (this.Width - btnEditar.Width) / 2;
                     lblFecha.Show();
                     cuenta = false;
                     tiempoFinalizado = fecha < DateTime.Now;
@@ -304,6 +323,12 @@ namespace Temporizador
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pnlBarraSuperior_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

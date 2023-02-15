@@ -51,7 +51,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pnlRadios = new System.Windows.Forms.Panel();
             this.pnlBotones = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericHoras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMinutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSegundos)).BeginInit();
@@ -59,7 +61,9 @@
             this.pnlFecha.SuspendLayout();
             this.pnlRadios.SuspendLayout();
             this.pnlBotones.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHoras
@@ -218,7 +222,7 @@
             this.rbCuenta.AutoSize = true;
             this.rbCuenta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCuenta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbCuenta.Location = new System.Drawing.Point(8, 19);
+            this.rbCuenta.Location = new System.Drawing.Point(12, 51);
             this.rbCuenta.Name = "rbCuenta";
             this.rbCuenta.Size = new System.Drawing.Size(132, 22);
             this.rbCuenta.TabIndex = 15;
@@ -232,7 +236,7 @@
             this.rbFecha.AutoSize = true;
             this.rbFecha.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFecha.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbFecha.Location = new System.Drawing.Point(146, 19);
+            this.rbFecha.Location = new System.Drawing.Point(150, 51);
             this.rbFecha.Name = "rbFecha";
             this.rbFecha.Size = new System.Drawing.Size(329, 22);
             this.rbFecha.TabIndex = 16;
@@ -250,7 +254,7 @@
             this.pnlCuenta.Controls.Add(this.numericHoras);
             this.pnlCuenta.Controls.Add(this.numericMinutos);
             this.pnlCuenta.Controls.Add(this.numericSegundos);
-            this.pnlCuenta.Location = new System.Drawing.Point(0, 57);
+            this.pnlCuenta.Location = new System.Drawing.Point(0, 77);
             this.pnlCuenta.Name = "pnlCuenta";
             this.pnlCuenta.Size = new System.Drawing.Size(491, 102);
             this.pnlCuenta.TabIndex = 17;
@@ -285,7 +289,7 @@
             // 
             this.pnlFecha.Controls.Add(this.dateTimePicker2);
             this.pnlFecha.Controls.Add(this.dateTimePicker1);
-            this.pnlFecha.Location = new System.Drawing.Point(0, 57);
+            this.pnlFecha.Location = new System.Drawing.Point(0, 76);
             this.pnlFecha.Name = "pnlFecha";
             this.pnlFecha.Size = new System.Drawing.Size(491, 46);
             this.pnlFecha.TabIndex = 18;
@@ -324,12 +328,13 @@
             // 
             // pnlRadios
             // 
+            this.pnlRadios.Controls.Add(this.panel1);
             this.pnlRadios.Controls.Add(this.rbCuenta);
             this.pnlRadios.Controls.Add(this.rbFecha);
             this.pnlRadios.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlRadios.Location = new System.Drawing.Point(0, 0);
             this.pnlRadios.Name = "pnlRadios";
-            this.pnlRadios.Size = new System.Drawing.Size(491, 58);
+            this.pnlRadios.Size = new System.Drawing.Size(491, 76);
             this.pnlRadios.TabIndex = 20;
             // 
             // pnlBotones
@@ -343,10 +348,21 @@
             this.pnlBotones.Controls.Add(this.tbMensaje);
             this.pnlBotones.Controls.Add(this.pictureBox1);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotones.Location = new System.Drawing.Point(0, 160);
+            this.pnlBotones.Location = new System.Drawing.Point(0, 179);
             this.pnlBotones.Name = "pnlBotones";
             this.pnlBotones.Size = new System.Drawing.Size(491, 157);
             this.pnlBotones.TabIndex = 21;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(491, 44);
+            this.panel1.TabIndex = 14;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // pictureBox1
             // 
@@ -359,12 +375,24 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Temporizador.Properties.Resources.close;
+            this.pictureBox2.Location = new System.Drawing.Point(450, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(491, 317);
+            this.ClientSize = new System.Drawing.Size(491, 336);
             this.Controls.Add(this.pnlFecha);
             this.Controls.Add(this.pnlCuenta);
             this.Controls.Add(this.pnlBotones);
@@ -382,7 +410,9 @@
             this.pnlRadios.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
             this.pnlBotones.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,5 +442,7 @@
         private System.Windows.Forms.Panel pnlBotones;
         public System.Windows.Forms.TextBox tbMensaje;
         public System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

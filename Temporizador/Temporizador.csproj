@@ -118,5 +118,8 @@
   <ItemGroup>
     <None Include="icons\play.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
