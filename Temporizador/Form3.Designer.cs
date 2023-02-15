@@ -57,6 +57,7 @@
             this.btnFinalizadoReiniciar.TabIndex = 1;
             this.btnFinalizadoReiniciar.Text = "Reiniciar";
             this.btnFinalizadoReiniciar.UseVisualStyleBackColor = false;
+            this.btnFinalizadoReiniciar.Click += new System.EventHandler(this.btnFinalizadoReiniciar_Click);
             // 
             // btnFinalizadoCancelar
             // 
@@ -71,6 +72,7 @@
             this.btnFinalizadoCancelar.TabIndex = 2;
             this.btnFinalizadoCancelar.Text = "Continuar";
             this.btnFinalizadoCancelar.UseVisualStyleBackColor = false;
+            this.btnFinalizadoCancelar.Click += new System.EventHandler(this.btnFinalizadoCancelar_Click);
             // 
             // Form3
             // 
@@ -85,6 +87,7 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.reproducirSonido);
+            this.VisibleChanged += new System.EventHandler(this.Form3_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

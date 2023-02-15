@@ -63,9 +63,9 @@ namespace Temporizador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        public static byte[] digital_7__mono_ {
+        public static byte[] digital_7_mono_ {
             get {
-                object obj = ResourceManager.GetObject("digital_7__mono_", resourceCulture);
+                object obj = ResourceManager.GetObject("digital_7_mono_", resourceCulture);
                 return ((byte[])(obj));
             }
         }

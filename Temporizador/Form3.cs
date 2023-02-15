@@ -15,18 +15,61 @@ namespace Temporizador
 {
     public partial class Form3 : Form
     {
+        internal bool bucleSonido;
         private SoundPlayer sonido;
         public Form3()
         {
             InitializeComponent();
-           
+
+            
+            
         }
 
         public SoundPlayer Sonido { get => sonido; set => sonido = value; }
 
         private void reproducirSonido(object sender, EventArgs e)
         {
-            Sonido.Play();
+            if (bucleSonido)
+            {
+                Sonido.PlayLooping();
+            }
+            else
+            {
+                Sonido.Play(); 
+
+            }
+
+        }
+
+        private void btnFinalizadoReiniciar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 padre = (Form1)this.Owner;
+            padre.ReiniciarTemporizador();
+
+        }
+
+
+        private void btnFinalizadoCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnFinalizadoCancelar_Paint(object sender, PaintEventArgs e)
+        {
+            reproducirSonido(sender, e);
+        }
+
+        private void Form3_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                reproducirSonido(sender, e);
+            }
+            else
+            {
+                Sonido.Stop();
+            }
         }
     }
 }

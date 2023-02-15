@@ -36,7 +36,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTiempo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.lblCrono = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             this.btnIniciarParar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarParar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarParar.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnIniciarParar.Location = new System.Drawing.Point(378, 211);
+            this.btnIniciarParar.Location = new System.Drawing.Point(379, 211);
             this.btnIniciarParar.Name = "btnIniciarParar";
             this.btnIniciarParar.Size = new System.Drawing.Size(120, 60);
             this.btnIniciarParar.TabIndex = 2;
@@ -88,12 +89,13 @@
             // 
             // lblTiempo
             // 
+            this.lblTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTiempo.AutoSize = true;
-            this.lblTiempo.Font = new System.Drawing.Font("Digital-7 Mono", 80.24999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 80.24999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTiempo.Location = new System.Drawing.Point(29, 70);
+            this.lblTiempo.Location = new System.Drawing.Point(93, 70);
             this.lblTiempo.Name = "lblTiempo";
-            this.lblTiempo.Size = new System.Drawing.Size(337, 126);
+            this.lblTiempo.Size = new System.Drawing.Size(368, 138);
             this.lblTiempo.TabIndex = 3;
             this.lblTiempo.Text = "tiempo";
             this.lblTiempo.UseCompatibleTextRendering = true;
@@ -110,16 +112,28 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
+            // lblMensaje
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(24, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblMensaje.Location = new System.Drawing.Point(24, 38);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(87, 25);
+            this.lblMensaje.TabIndex = 5;
+            this.lblMensaje.Text = "Alarma";
+            // 
+            // lblCrono
+            // 
+            this.lblCrono.AutoSize = true;
+            this.lblCrono.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCrono.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblCrono.Location = new System.Drawing.Point(12, 94);
+            this.lblCrono.Name = "lblCrono";
+            this.lblCrono.Size = new System.Drawing.Size(75, 104);
+            this.lblCrono.TabIndex = 3;
+            this.lblCrono.Text = "+";
+            this.lblCrono.UseCompatibleTextRendering = true;
             // 
             // Form1
             // 
@@ -127,8 +141,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(510, 283);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblCrono);
             this.Controls.Add(this.lblTiempo);
             this.Controls.Add(this.btnIniciarParar);
             this.Controls.Add(this.btnReiniciar);
@@ -147,11 +162,12 @@
 
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnReiniciar;
-        private System.Windows.Forms.Button btnIniciarParar;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblTiempo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMensaje;
+        public System.Windows.Forms.Button btnIniciarParar;
+        public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTiempo;
+        public System.Windows.Forms.Label lblCrono;
     }
 }
 
