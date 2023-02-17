@@ -57,8 +57,8 @@ namespace Temporizador
 
             // Inicializar valores por defecto
             horas = 0;
-            minutos = 0;
-            segundos = 3;
+            minutos = 4;
+            segundos = 0;
             if (cuenta)
             {
                 tiempoContador = new TimeSpan(horas, minutos, segundos); 
